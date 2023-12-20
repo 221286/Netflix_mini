@@ -7,15 +7,15 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCvO36Oet37bYJEwwHYG_4rZMMPE5dcfgE",
-  authDomain: "netflix-mini-474c8.firebaseapp.com",
-  projectId: "netflix-mini-474c8",
-  storageBucket: "netflix-mini-474c8.appspot.com",
-  messagingSenderId: "897813863621",
-  appId: "1:897813863621:web:d38e8d855bf060b51da4ac",
-  measurementId: "G-T5XY9FBMSW"
+  apiKey: "AIzaSyBGfdGdtTGtG5rPAk1OV586Awwt7s1tnGs",
+  authDomain: "netflix-mini-65990.firebaseapp.com",
+  projectId: "netflix-mini-65990",
+  storageBucket: "netflix-mini-65990.appspot.com",
+  messagingSenderId: "364586423",
+  appId: "1:364586423:web:985a5c787f4673593eb432",
+  measurementId: "G-N3BB9DYVD4"
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
