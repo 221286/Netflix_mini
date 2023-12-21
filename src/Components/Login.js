@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react'
 import Header from './Header';
-import { validation } from './Utils/validation';
+import { validation , Signup_validation} from './Utils/validation';
 import { BACKGORUND_IMAGE } from './Utils/Constants';
-//import { app } from './Firebase';
+import { auth } from './Firebase';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 const Login = () => {
     const [setsignin,getsignin] = useState(true);
@@ -16,9 +17,46 @@ const Login = () => {
         getsignin(!setsignin);
         getwarning(null);
      }
-     function handle_Signin_up(){
+     function handle_Signin(){
         getwarning(validation(mail.current.value, passwords.current.value));
-         ;
+        if(setwarning === null){
+          signInWithEmailAndPassword(auth, mail.current.value, passwords.current.value)
+    .then((userCredential) => {
+      // Signed up 
+      const user = userCredential.user;
+      getwarning("Signed In");
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      getwarning(errorCode+"is"+errorMessage);
+      // ..
+    });
+  
+         }
+        
+        
+         
+     }
+     function handle_SignUp(){
+      getwarning(Signup_validation(mail.current.value, passwords.current.value,confirm_password.current.value));
+       if(setwarning === null){
+        createUserWithEmailAndPassword(auth, mail.current.value, passwords.current.value)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    getwarning("Signed In");
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    getwarning(errorCode+"is"+errorMessage);
+    // ..
+  });
+
+       }
      }
   return (
     <div className=''>
@@ -34,8 +72,8 @@ const Login = () => {
         <input type="password" placeholder='Password' size={40}  ref={passwords} className='p-4 border border-solid bg-gray-300 my-4 rounded-lg text-black border-black block'/>
         {!setsignin && (<input type="password" ref={confirm_password} placeholder='Confirm Password' size={40} className='p-4 border border-solid bg-gray-300 my-4 rounded-lg text-black border-black block'/>)}  
          <p className='p-1 font-serif text-orange-300'>{setwarning}</p>
-       { setsignin ? (<input type="submit" onClick={handle_Signin_up} className='p-2 border border-solid border-black block text-center bg-red-600 mt-10 mb-14 w-full rounded-lg' value="Sign In" />):
-       (<input type="submit" onClick={()=>console.log("Signup")} className='p-2 border border-solid border-black block text-center bg-red-600 mt-10 mb-14 w-full rounded-lg' value="Sign Up" />)}
+       { setsignin ? (<input type="submit" onClick={handle_Signin} className='p-2 border border-solid border-black block text-center bg-red-600 mt-10 mb-14 w-full rounded-lg' value="Sign In" />):
+       (<input type="submit" onClick={handle_SignUp} className='p-2 border border-solid border-black block text-center bg-red-600 mt-10 mb-14 w-full rounded-lg' value="Sign Up" />)}
         
        <p className='text-gray-300'>{setsignin ? "New to Netflix ?":"Already Registerd ? "} <span className='text-white font-bold cursor-pointer hover:underline' onClick={toggglehandler}> {setsignin ? "Sign Up Now":"Sign In Now"}</span></p>
 
