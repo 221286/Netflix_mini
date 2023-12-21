@@ -1,9 +1,13 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Header from './Header';
 import { validation , Signup_validation} from './Utils/validation';
 import { BACKGORUND_IMAGE } from './Utils/Constants';
 import { auth } from './Firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
+import { additem, removeitem } from './Utils/Userslice';
+import { useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
     const [setsignin,getsignin] = useState(true);
@@ -12,8 +16,32 @@ const Login = () => {
     const mail = useRef(null);
     const passwords = useRef(null);
     const confirm_password = useRef(null);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
      
-     function toggglehandler(){
+    useEffect(()=>{
+          onAuthStateChanged(auth, (user) => {
+            if (user) {
+              //console.log(user);
+              // User is signed in, see docs for a list of available properties
+              // https://firebase.google.com/docs/reference/js/auth.user
+              const uid = user.uid;
+              dispatch(additem({uid:uid,display_name:name.current.value,email:user.email}));
+              navigate("/browse");
+              // ...
+            } else {
+              // User is signed out
+              // ...
+              dispatch(removeitem());
+              navigate("/");
+            }
+          },[]);
+    },[]) 
+    
+    
+
+
+    function toggglehandler(){
         getsignin(!setsignin);
         getwarning(null);
      }
