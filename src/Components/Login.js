@@ -1,12 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, {  useRef, useState } from 'react'
 import Header from './Header';
 import { validation , Signup_validation} from './Utils/validation';
 import { BACKGORUND_IMAGE } from './Utils/Constants';
 import { auth } from './Firebase';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
-import { useDispatch } from 'react-redux';
-import { additem, removeitem } from './Utils/Userslice';
-import { useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword,  signInWithEmailAndPassword } from 'firebase/auth';
+
 
 
 const Login = () => {
@@ -16,27 +14,9 @@ const Login = () => {
     const mail = useRef(null);
     const passwords = useRef(null);
     const confirm_password = useRef(null);
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    
      
-    useEffect(()=>{
-          onAuthStateChanged(auth, (user) => {
-            if (user) {
-              //console.log(user);
-              // User is signed in, see docs for a list of available properties
-              // https://firebase.google.com/docs/reference/js/auth.user
-              const uid = user.uid;
-              dispatch(additem({uid:uid,display_name:name.current.value,email:user.email}));
-              navigate("/browse");
-              // ...
-            } else {
-              // User is signed out
-              // ...
-              dispatch(removeitem());
-              navigate("/");
-            }
-          },[]);
-    },[]) 
+     
     
     
 
@@ -88,8 +68,8 @@ const Login = () => {
      }
   return (
     <div className=''>
-      <Header sign_in={setsignin} setsign={toggglehandler}></Header>
-      <div className='absolute'>
+      <Header sign_in={setsignin} setsign={toggglehandler} getsignin={getsignin}></Header>
+      <div className='absolute w-screen h-screen'>
         <img src={BACKGORUND_IMAGE} alt="Main pic" />
       </div>
 
