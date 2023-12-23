@@ -5,19 +5,9 @@ import Maincontainer from './Maincontainer';
 import Secondarycontainer from './Secondarycontainer';
 
 const Browse = () => {
-
-  
-  
-  
-  
-
   useFetchmovies();
-  
-
-
-  
   return (
-    <div>
+    <div className=''>
       <Header></Header>
       {/**  
        * Main container

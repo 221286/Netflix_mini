@@ -18,6 +18,7 @@ useEffect(()=>{
 
 
     const json = await data.json();
+    
     dispatch(addmovies(json?.results));
 
 

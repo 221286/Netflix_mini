@@ -18,6 +18,17 @@
 - Bugfix: if the user is not logged in redirect /browse to login page and vice versa
 - Uncubscribed to onAuthStateChanged callback
 - Add hardcoded values to the constant files. 
+- Register TMDB API & create an App and get an access token
+- Get data from TMDB movie list
+- Create custom hooks for fetching the movies
+- create movie slice
+- Update store with movies Data
+- Planning for main container and secondary container
+- Fetch data for trailer videos
+- Update store with trailer video data
+- Embedded yooututbe video and amde it autoplay and mute
+- Build secondary component
+- 
 
 
 
