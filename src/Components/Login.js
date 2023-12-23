@@ -67,9 +67,9 @@ const Login = () => {
        }
      }
   return (
-    <div className=''>
+    <div className='w-screen aspect-square'>
       <Header sign_in={setsignin} setsign={toggglehandler} getsignin={getsignin}></Header>
-      <div className='absolute w-screen h-screen'>
+      <div className='absolute w-screen aspect-square'>
         <img src={BACKGORUND_IMAGE} alt="Main pic" />
       </div>
 
