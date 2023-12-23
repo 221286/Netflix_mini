@@ -1,6 +1,5 @@
 import React from 'react'
 import  Header from './Header';
-import { useSelector } from 'react-redux';
 import { useFetchmovies } from './Utils/useFetchmovies';
 import Maincontainer from './Maincontainer';
 import Secondarycontainer from './Secondarycontainer';
@@ -8,11 +7,12 @@ import Secondarycontainer from './Secondarycontainer';
 const Browse = () => {
 
   
-  const select = useSelector(store=>store?.movies?.currentmovielist);
-  console.log(select);
+  
+  
+  
 
   useFetchmovies();
-
+  
 
 
   
@@ -29,7 +29,7 @@ const Browse = () => {
        * 
        * 
        */}
-       <Maincontainer></Maincontainer>
+       <Maincontainer ></Maincontainer>
        <Secondarycontainer></Secondarycontainer>
     </div>
   )
