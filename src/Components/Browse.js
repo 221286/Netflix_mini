@@ -1,12 +1,12 @@
 import React from 'react'
 import  Header from './Header';
 import { useFetchmovies } from './Utils/useFetchmovies';
-import Maincontainer from './Maincontainer';
-import Secondarycontainer from './Secondarycontainer';
+
 import { useFetchNowplayingmovies } from './CustomHooks/useNowplayingMovies';
 import { usePopularmovies } from './CustomHooks/usePupularmovies';
 import { useFetchTopmovies } from './CustomHooks/useTopratedmovies';
 import SearchGPTpage from './SearchGPTpage';
+import BrowseMainpage from './BrowseMainpage';
 //import { Outlet } from 'react-router-dom';
 
 const Browse = () => {
@@ -20,8 +20,8 @@ const Browse = () => {
       <Header></Header>
       
 
+      <BrowseMainpage></BrowseMainpage>
       
-      <SearchGPTpage></SearchGPTpage>
 
       {/*<Outlet/>}
       {/**  
@@ -32,8 +32,7 @@ const Browse = () => {
        * -Video List*n
        * --Video Card *n
        * 
-       <Maincontainer ></Maincontainer>
-       <Secondarycontainer></Secondarycontainer>
+       <SearchGPTpage></SearchGPTpage>
        * 
        */}
     </div>

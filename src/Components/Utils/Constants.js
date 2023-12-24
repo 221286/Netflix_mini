@@ -9,3 +9,23 @@ export const MOVIE_API_OPTIONS  = {
   };
 
   export const LIST_CARD_IMAGE ="https://image.tmdb.org/t/p/w500";
+
+  export const SUPPORTED_LANGUAGE =[{
+    identifier:"en",
+    name:"English"
+  },
+  {
+    identifier:"Hindi",
+    name:"हिंदी"
+  },
+  {
+    identifier:"Tamil",
+    name:"தமிழ்"
+  },{
+    identifier:"Arabic",
+    name:"عربي"
+  },
+  {
+    identifier:"Urdu",
+    name:"اردو"
+  }]
