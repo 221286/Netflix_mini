@@ -11,7 +11,7 @@ const Backgroundvideo = ({Movie_ID}) => {
     if(!select) return;
     
     const trailer= select.filter(find=>find.name.includes("Trailer"))
-    const key = trailer[0].key
+    const key = trailer[1].key
     //console.log(key);
   return (
     <div> 

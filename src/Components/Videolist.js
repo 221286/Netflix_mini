@@ -2,15 +2,16 @@ import React from 'react'
 import VideoCards from './VideoCards'
 import { useSelector } from 'react-redux'
 
-const Videolist = () => {
-    const select = useSelector(store=>store.movies?.currentmovielist)
+const Videolist = ({title,select}) => {
+    
     if(!select) return;
-    console.log(select[0].poster_path)
+   // console.log(select[0])
   return (
-    <div className='w-screen'>
-      <div className=' flex ml-6  py-10 overflow-x-scroll '>
-        <div className=' flex relative  z-10    '>
-        {select.map(cards=>(<VideoCards image={cards?.poster_path}></VideoCards>))}
+    <div className='w-screen ml-12  py-10 '>
+        <h2 className='pl-1 text-3xl' >{title}</h2>
+      <div className=' flex  mt-1 overflow-x-scroll '>
+        <div className=' flex    '>
+        {select.map(cards=>(<VideoCards image={cards?.poster_path} key={cards?.id}></VideoCards>))}
         </div>
 
         

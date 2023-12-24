@@ -28,7 +28,11 @@
 - Update store with trailer video data
 - Embedded yooututbe video and amde it autoplay and mute
 - Build secondary component
-- 
+- Build movie list
+- Build movie card
+- TMDB image CDN URL
+- Made the browse page look good
+- use Poppular maovie custom hook
 
 
 
