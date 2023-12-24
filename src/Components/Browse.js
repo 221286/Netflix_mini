@@ -6,6 +6,8 @@ import Secondarycontainer from './Secondarycontainer';
 import { useFetchNowplayingmovies } from './CustomHooks/useNowplayingMovies';
 import { usePopularmovies } from './CustomHooks/usePupularmovies';
 import { useFetchTopmovies } from './CustomHooks/useTopratedmovies';
+import SearchGPTpage from './SearchGPTpage';
+//import { Outlet } from 'react-router-dom';
 
 const Browse = () => {
   useFetchmovies();
@@ -14,7 +16,14 @@ const Browse = () => {
   useFetchTopmovies();
   return (
     <div className=''>
+      
       <Header></Header>
+      
+
+      
+      <SearchGPTpage></SearchGPTpage>
+
+      {/*<Outlet/>}
       {/**  
        * Main container
        * -Background Playing video
@@ -23,10 +32,10 @@ const Browse = () => {
        * -Video List*n
        * --Video Card *n
        * 
-       * 
-       */}
        <Maincontainer ></Maincontainer>
        <Secondarycontainer></Secondarycontainer>
+       * 
+       */}
     </div>
   )
 }

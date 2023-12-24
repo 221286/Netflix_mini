@@ -2,6 +2,7 @@ import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Login from './Login';
 import Browse from './Browse';
+import SearchGPTpage from './SearchGPTpage';
 
 const Body = () => {
   //dWXuBeY#aL#MVj9
@@ -12,7 +13,16 @@ const Body = () => {
         },
     {
         path:"/browse",
-        element:<Browse></Browse>
+        element:<Browse></Browse>,
+        children:[{
+
+          path:"/browse/Searchpage",
+          element:<SearchGPTpage></SearchGPTpage>
+        }
+
+        ]
+
+        
     }])
   return (
     <div>

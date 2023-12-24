@@ -16,7 +16,7 @@ export const useFetchNowplayingmovies =()=>{
 
     const data = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=2', MOVIE_API_OPTIONS)
 
-
+    
 
 
     const json = await data.json();
