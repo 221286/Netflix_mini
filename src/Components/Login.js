@@ -71,10 +71,10 @@ const Login = () => {
        }
      }
      const {Signin,SignUp,fullname,email,password,confirmpassword,SignUpnow,Signinnow,NewNetflix,Alreadyaccount}=Lang?.[Language]
-
+     
   return (
     <div className='w-screen aspect-square'>
-      <Header sign_in={setsignin} setsign={toggglehandler} getsignin={getsignin} Signin={Lang?.[Language]?.Signin}></Header>
+      <Header sign_in={setsignin} setsign={toggglehandler} getsignin={getsignin} Signin={Signin} ></Header>
       <div className='absolute w-screen aspect-square'>
         <img src={BACKGORUND_IMAGE} alt="Main pic" />
       </div>
@@ -96,5 +96,4 @@ const Login = () => {
     </div>
   )
 }
-
 export default Login

@@ -2,23 +2,31 @@ import React, { useEffect, useState } from 'react'
 import { HEADER_LOGO_IMAGE } from './Utils/Constants';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from './Firebase';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { additem, removeitem } from './Utils/Userslice';
 import LanguageSelect from './LanguageSelect';
+import {  togglesearchpage } from './Utils/SearchGPTslice';
+import { Lang } from './Utils/LanguageNetflix';
 
 const Header = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [browseheader,getbrowseheader] = useState(true);
-  const {sign_in,setsign,Signin} = props;
+  const {sign_in,setsign,showsearchGPT} = props;
+  const showsearch = useDispatch();
+  const Language = useSelector(store=>store.lang?.Lang);
   //const browserToggle =()=>{
     //getbrowseheader(!browseheader);
 
   //};
+  const togglesearch =()=>{
+    showsearch(togglesearchpage());
+}
 
   const SignOut = ()=>{
     signOut(auth).then(() => {
+      
       // Sign-out successful.
     }).catch((error) => {
       // An error happened.
@@ -35,6 +43,8 @@ const Header = (props) => {
         dispatch(additem({uid:uid,display_name:user.displayName,email:user.email}));
         navigate("/browse");
         getbrowseheader(false);
+        
+        
         // ...
       } else {
         // User is signed out
@@ -42,13 +52,16 @@ const Header = (props) => {
         dispatch(removeitem());
         getbrowseheader(true);
         
+        
+        
         navigate("/");
       }
     });
     return ()=>unsubscribe();
 },[]);
-  
-    
+
+     const {Home ,Signin,Signout,SearchGPTpage}=Lang?.[Language];
+    console.log(Home);
     
   return (<div className='absolute w-screen bg-gradient-to-b from-black z-30 top-0'>
     <div className='flex justify-between'>
@@ -56,7 +69,8 @@ const Header = (props) => {
       <img src={HEADER_LOGO_IMAGE} alt="file not found" className="w-[170px] m-4 wx-[190px] " />
     </div>
     <div className='m-8  flex'>
-      <LanguageSelect></LanguageSelect>
+     
+    <LanguageSelect></LanguageSelect>
     
     {!sign_in && browseheader &&
     (<div>
@@ -70,9 +84,11 @@ const Header = (props) => {
     (
     
     <div className='flex '>
-      <button className='bg-red-600 p-1.5 rounded-lg text-white px-8 mx-4'>Search GPT</button>
+      
+      
+      <button className='bg-red-600 p-1.5 rounded-lg text-white px-8 mx-4' onClick={togglesearch}>{showsearchGPT ? Home:SearchGPTpage}</button>
         
-        <button className='bg-red-600 p-1.5 rounded-lg text-white px-8 mx-4' onClick={SignOut} >Sign Out</button>
+        <button className='bg-red-600 p-1.5 rounded-lg text-white px-8 mx-4' onClick={SignOut} >{Signout}</button>
     </div>
        
     

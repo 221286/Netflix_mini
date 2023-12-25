@@ -7,9 +7,12 @@ import { usePopularmovies } from './CustomHooks/usePupularmovies';
 import { useFetchTopmovies } from './CustomHooks/useTopratedmovies';
 import SearchGPTpage from './SearchGPTpage';
 import BrowseMainpage from './BrowseMainpage';
+import { useSelector } from 'react-redux';
 //import { Outlet } from 'react-router-dom';
 
 const Browse = () => {
+  const showsearGPTchpage = useSelector(store=>store.SearchGPT.Searchpageopen);
+  
   useFetchmovies();
   useFetchNowplayingmovies();
   usePopularmovies();
@@ -17,10 +20,10 @@ const Browse = () => {
   return (
     <div className=''>
       
-      <Header></Header>
+      <Header showsearchGPT={showsearGPTchpage}></Header>
       
-
-      <BrowseMainpage></BrowseMainpage>
+      {showsearGPTchpage?(<><SearchGPTpage></SearchGPTpage></>):(<><BrowseMainpage></BrowseMainpage></>)}
+      
       
 
       {/*<Outlet/>}

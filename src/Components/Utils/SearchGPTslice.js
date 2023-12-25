@@ -6,7 +6,7 @@ const SearchGPTslice = createSlice({
         Searchpageopen:false,
     },
     reducers:{
-     togglesearchpage:(state,action)=>{
+     togglesearchpage:(state)=>{
         state.Searchpageopen= !state.Searchpageopen;
 
      }
