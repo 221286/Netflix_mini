@@ -75,11 +75,11 @@ const Login = () => {
   return (
     <div className='w-screen aspect-square'>
       <Header sign_in={setsignin} setsign={toggglehandler} getsignin={getsignin} Signin={Signin} ></Header>
-      <div className='absolute w-screen aspect-square'>
+      <div className='fixed w-screen aspect-square'>
         <img src={BACKGORUND_IMAGE} alt="Main pic" />
       </div>
 
-      <form onSubmit={(e=>e.preventDefault())} className=' absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/12 bg-black p-8 pl-16 text-white bg-opacity-80 rounded-lg'>
+      <form onSubmit={(e=>e.preventDefault())} className=' fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/12 bg-black p-8 pl-16 text-white bg-opacity-80  rounded-lg'>
         <h1 className='pt-8 pb-4 text-3xl'>{setsignin ? Signin:SignUp}</h1>
       {!setsignin && (<input type="text" ref={name} placeholder={fullname}  className='p-4 border border-solid w-96 bg-gray-300 my-4 rounded-lg text-black border-black block'/>)}  
         <input type="email" placeholder={email} ref={mail}  className=' p-4  my-4 border border-solid w-96 rounded-lg bg-gray-300 text-black border-black block'/>

@@ -1,14 +1,18 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addmovies } from "./Movieslice";
 import { MOVIE_API_OPTIONS } from "./Constants";
 
+
 export const useFetchmovies =()=>{
+      const check_fetchstore = useSelector(store=>store.movies.currentmovielist);
     
     const dispatch = useDispatch();
 
 useEffect(()=>{
-    MOVIELIST();
+
+  if(!check_fetchstore)
+     MOVIELIST();
 
   },[]);
   const MOVIELIST = async()=>{

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { additem, removeitem } from './Utils/Userslice';
 import LanguageSelect from './LanguageSelect';
-import {  togglesearchpage } from './Utils/SearchGPTslice';
+import {  clearAll, togglesearchpage } from './Utils/SearchGPTslice';
 import { Lang } from './Utils/LanguageNetflix';
 
 const Header = (props) => {
@@ -22,6 +22,7 @@ const Header = (props) => {
   //};
   const togglesearch =()=>{
     showsearch(togglesearchpage());
+    showsearch(clearAll());
 }
 
   const SignOut = ()=>{
@@ -61,9 +62,9 @@ const Header = (props) => {
 },[]);
 
      const {Home ,Signin,Signout,SearchGPTpage}=Lang?.[Language];
-    console.log(Home);
     
-  return (<div className='absolute w-screen bg-gradient-to-b from-black z-30 top-0'>
+    
+  return (<div className='fixed w-screen bg-gradient-to-b from-black z-30 top-0'>
     <div className='flex justify-between'>
          <div >
       <img src={HEADER_LOGO_IMAGE} alt="file not found" className="w-[170px] m-4 wx-[190px] " />

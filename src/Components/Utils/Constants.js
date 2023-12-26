@@ -4,7 +4,7 @@ export const MOVIE_API_OPTIONS  = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMmIyY2NkZTkxYzRlYzc2NWFmNjcwM2E5ZGNhYjgxOSIsInN1YiI6IjY1ODU1ZDA4MjhkN2ZlNTgwZjNhMGZiYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.lxr4EpVxmTp7o-djIwqj6eHWkjh0ddisvMb8ACdmZl4'
+      Authorization: 'Bearer '+ process.env.REACT_APP_TMDB_API,
     }
   };
 
@@ -28,4 +28,9 @@ export const MOVIE_API_OPTIONS  = {
   {
     identifier:"Urdu",
     name:"اردو"
-  }]
+  }];
+
+  export const OPEN_AI_API_KEY = process.env.REACT_APP_OPEN_API;
+  export const INSTRUCTION1= "Act as a movie reccomendation system and suggest some movies for the query";
+  export const INSTRUCTION2= ". Only give me the names of top 7 movies that are comma seperated for example DIL,HUM,HUM TUM,INDIAN,CHERNOBYL. I just need it ot be comma sperated and no n1. or  n2. I don't want anything other then movies no statement";
+  

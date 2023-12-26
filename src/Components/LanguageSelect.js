@@ -10,7 +10,7 @@ const LanguageSelect = () => {
         changeLang(changeLanguage(e.target.value));
 
     }
-    console.log(defaultlanguage)
+    //console.log(defaultlanguage)
   return (
     <div>
       <select className='p-1.5 px-4 border border-solid border-white mx-2 text-white pr-2 bg-transparent cursor-pointer' 
