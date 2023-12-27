@@ -13,8 +13,8 @@ const Maincontainer = () => {
   //console.log(select[0] );
   return (
     <div className=''>
-      <Backgroundvideo Movie_ID={select[0]?.id}></Backgroundvideo>
-      <Videotitle videoInfo={select[0]}></Videotitle>
+      <Backgroundvideo Movie_ID={select[1]?.id}></Backgroundvideo>
+      <Videotitle videoInfo={select[1]}></Videotitle>
     </div>
   )
 }

@@ -31,7 +31,7 @@ const SearchGPTbar = ({SearchGPTplaceholder, Search}) => {
       <form onSubmit={e=>e.preventDefault()} className='mt-6'>
         <input type="text" placeholder={SearchGPTplaceholder} ref={Searchmovies} className='w-7/12 p-3 mx-5'/>
         <input type="button" value={Search} onClick={useSearchmovies}
-        className='text-white w-1/3 p-3 bg-red-600 rounded-lg' />
+        className='text-white w-1/3 p-3 bg-red-600 rounded-lg cursor-pointer' />
 
       </form>
       </div>
