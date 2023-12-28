@@ -9,7 +9,7 @@ const SearchGPTbarresults = () => {
     return
     
   return (
-    <div className='p-6 flex flex-wrap mx-12'>
+    <div className='p-3 md:p-6 flex flex-wrap mx-[1.65rem] md:mx-16'>
       {selectGPTmovievies.map(movielist=>movielist?.results.map(movie=>(<VideoCards image={movie?.poster_path} key={movie?.id} />)))}
     </div>
   )

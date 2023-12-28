@@ -7,7 +7,7 @@ const Videolist = ({title,select}) => {
    // console.log(select[0])
   return (
     <div className='w-screen ml-12  py-10 '>
-        <h2 className='pl-1 text-3xl overflow-hidden' >{title}</h2>
+        <h2 className='pl-1 text-lg sm:text-3xl overflow-hidden' >{title}</h2>
       <div className=' flex  mt-1 overflow-x-scroll '>
         <div className=' flex    '>
         {select.map(cards=>(<VideoCards image={cards?.poster_path} key={cards?.id}></VideoCards>))}

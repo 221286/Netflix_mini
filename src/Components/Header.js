@@ -65,11 +65,11 @@ const Header = (props) => {
     
     
   return (<div className='fixed w-screen bg-gradient-to-b from-black z-30 top-0'>
-    <div className='flex justify-between'>
-         <div >
-      <img src={HEADER_LOGO_IMAGE} alt="file not found" className="w-[170px] m-4 wx-[190px] " />
+    <div className='flex flex-col justify-between items-center text-[10px] md:flex-row md:text-base'>
+         <div className=''>
+      <img src={HEADER_LOGO_IMAGE} alt="file not found" className="w-[130px] m-4 md:w-[170px] " />
     </div>
-    <div className='m-8  flex'>
+    <div className='m-3 md:m-8  flex justify-around'>
      
     <LanguageSelect></LanguageSelect>
     
@@ -87,9 +87,9 @@ const Header = (props) => {
     <div className='flex '>
       
       
-      <button className='bg-red-600 p-1.5 rounded-lg text-white px-8 mx-4' onClick={togglesearch}>{showsearchGPT ? Home:SearchGPTpage}</button>
+      <button className='bg-red-600 p-1 rounded-lg text-white px-8 mx-2 sm:mx-4' onClick={togglesearch}>{showsearchGPT ? Home:SearchGPTpage}</button>
         
-        <button className='bg-red-600 p-1.5 rounded-lg text-white px-8 mx-4' onClick={SignOut} >{Signout}</button>
+        <button className='bg-red-600 p-1 sm:p-1.5 rounded-lg text-white sm:px-8 px-4 mx-2 sm:mx-4' onClick={SignOut} >{Signout}</button>
     </div>
        
     

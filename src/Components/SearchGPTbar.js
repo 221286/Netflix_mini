@@ -24,14 +24,14 @@ const SearchGPTbar = ({SearchGPTplaceholder, Search}) => {
 
     }
       
-
+     ;
 
   return (
-    <div className='w-6/12 h-24   bg-black absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+    <div className={'w-10/12 md:w-6/12 h-24 text-[10px] md:text-base   bg-black absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2'}>
       <form onSubmit={e=>e.preventDefault()} className='mt-6'>
         <input type="text" placeholder={SearchGPTplaceholder} ref={Searchmovies} className='w-7/12 p-3 mx-5'/>
         <input type="button" value={Search} onClick={useSearchmovies}
-        className='text-white w-1/3 p-3 bg-red-600 rounded-lg cursor-pointer' />
+        className='text-white w-1/4 md:w-1/3 p-3 bg-red-600 rounded-lg cursor-pointer' />
 
       </form>
       </div>
