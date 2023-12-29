@@ -17,10 +17,16 @@ const Header = (props) => {
   const {sign_in,setsign,showsearchGPT} = props;
   //const showsearch = useDispatch();
   const Language = useSelector(store=>store.lang?.Lang);
+  const Mode = useSelector(store=>store.mode.darkmode);
   //const browserToggle =()=>{
     //getbrowseheader(!browseheader);
 
   //};
+
+  const togglemode=()=>{
+    dispatch(changemode());
+  }
+
   const togglesearch =()=>{
     dispatch(togglesearchpage());
     dispatch(clearAll());
@@ -65,9 +71,9 @@ const Header = (props) => {
 },[]);
 
      const {Home ,Signin,Signout,SearchGPTpage}=Lang?.[Language];
+    const modes= Mode ? 'bg-gradient-to-b from-black':'bg-white'
     
-    
-  return (<div className='fixed w-screen bg-gradient-to-b from-black z-30 top-0'>
+  return (<div className={'fixed w-screen '+modes+' z-30  top-0'}>
     <div className='flex flex-col justify-between items-center text-[10px] md:flex-row md:text-base'>
          <div className=''>
       <img src={HEADER_LOGO_IMAGE} alt="file not found" className="w-[130px] m-4 md:w-[170px] " />
@@ -75,7 +81,7 @@ const Header = (props) => {
     <div className='m-3 md:m-8  flex justify-around'>
      
     <LanguageSelect></LanguageSelect>
-    <button className='bg-red-600 p-0 rounded-full text-3xl  mx-4'>🌔</button>
+    
     
     {!sign_in && browseheader &&
     (<div>
@@ -98,6 +104,7 @@ const Header = (props) => {
        
     
     )}
+    <button className='bg-gradient-to-t p-0 rounded-full text-4xl mx-4' onClick={togglemode}>{Mode ? "🌔" : "🌞"}</button>
     </div>
     </div>
 

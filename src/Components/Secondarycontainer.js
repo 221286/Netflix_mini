@@ -4,19 +4,19 @@ import { useSelector } from 'react-redux'
 //import { useSelector } from 'react-redux'
 
 const Secondarycontainer = () => {
-    const selectcurrent = useSelector(store=>store.movies?.currentmovielist);
-    const selectTop = useSelector(store=>store.movies?.Topratedmovies);
-    const selectNowplaying = useSelector(store=>store.movies?.Nowplayingmovies);
-    const selectPopular = useSelector(store=>store.movies?.Popularmovies)
+    const select = useSelector(store=>store);
     
+    const {currentmovielist,Topratedmovies,Nowplayingmovies,Popularmovies}= select?.movies;
+    const {darkmode}= select?.mode;
+    const setmode = darkmode ? 'text-white bg-black':'text-black bg-white'
   return (
-    <div className='bg-black'>
-         <div className='absolute text-white bg-black mt-[50rem]'>
+    <div className='bg-black overflow-hidden'>
+         <div className={'absolute  mt-[50rem] '+ setmode}>
             <div className='-mt-[10rem]'>
-            <Videolist title={"Current Movies"} select={selectcurrent} ></Videolist>
-         <Videolist title={"Top Rated"} select={selectTop} ></Videolist>
-         <Videolist title={"Now playing"} select={selectNowplaying} ></Videolist>
-         <Videolist title={"Popular"} select={selectPopular}></Videolist>
+            <Videolist title={"Current Movies"} select={currentmovielist} ></Videolist>
+         <Videolist title={"Top Rated"} select={Topratedmovies} ></Videolist>
+         <Videolist title={"Now playing"} select={Nowplayingmovies} ></Videolist>
+         <Videolist title={"Popular"} select={Popularmovies}></Videolist>
 
             </div>
          
