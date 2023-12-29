@@ -8,25 +8,28 @@ import { additem, removeitem } from './Utils/Userslice';
 import LanguageSelect from './LanguageSelect';
 import {  clearAll, togglesearchpage } from './Utils/SearchGPTslice';
 import { Lang } from './Utils/LanguageNetflix';
+import { changemode } from './Utils/Modeslice';
 
 const Header = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [browseheader,getbrowseheader] = useState(true);
   const {sign_in,setsign,showsearchGPT} = props;
-  const showsearch = useDispatch();
+  //const showsearch = useDispatch();
   const Language = useSelector(store=>store.lang?.Lang);
   //const browserToggle =()=>{
     //getbrowseheader(!browseheader);
 
   //};
   const togglesearch =()=>{
-    showsearch(togglesearchpage());
-    showsearch(clearAll());
+    dispatch(togglesearchpage());
+    dispatch(clearAll());
+    
 }
 
   const SignOut = ()=>{
     signOut(auth).then(() => {
+      dispatch(clearAll());
       
       // Sign-out successful.
     }).catch((error) => {
@@ -72,6 +75,7 @@ const Header = (props) => {
     <div className='m-3 md:m-8  flex justify-around'>
      
     <LanguageSelect></LanguageSelect>
+    <button className='bg-red-600 p-0 rounded-full text-3xl  mx-4'>🌔</button>
     
     {!sign_in && browseheader &&
     (<div>

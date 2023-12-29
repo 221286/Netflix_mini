@@ -78,12 +78,12 @@ const Login = () => {
       <Header sign_in={setsignin} setsign={toggglehandler} getsignin={getsignin} Signin={Signin} ></Header>
            <Backgroundimage></Backgroundimage>
        
-      <form onSubmit={(e=>e.preventDefault())} className=' fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 p-4 sm:w-4/12 bg-black sm:p-8 sm:pl-16 text-white text-xs  sm:text-base bg-opacity-80 m-auto rounded-lg'>
+      <form onSubmit={(e=>e.preventDefault())} className=' fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 p-4  sm:w-4/12 bg-black sm:p-8 sm:pl-16 text-white text-xs  sm:text-base bg-opacity-80 m-auto rounded-lg'>
         <h1 className='pt-8 pb-4 text-3xl'>{setsignin ? Signin:SignUp}</h1>
-      {!setsignin && (<input type="text" ref={name} placeholder={fullname}  className='p-4 border border-solid w-96 bg-gray-300 my-4 rounded-lg text-black border-black block'/>)}  
-        <input type="email" placeholder={email} ref={mail}  className=' p-4  my-4 border border-solid w-96 rounded-lg bg-gray-300 text-black border-black block'/>
-        <input type="password" placeholder={password}   ref={passwords} className='p-4 w-96 border border-solid bg-gray-300 my-4 rounded-lg text-black border-black block'/>
-        {!setsignin && (<input type="password" ref={confirm_password} placeholder={confirmpassword}  className='p-4 w-96 border border-solid bg-gray-300 my-4 rounded-lg text-black border-black block'/>)}  
+      {!setsignin && (<input type="text" ref={name} placeholder={fullname}  className=' p-3 sm:p-4 border border-solid w-[22.5rem] sm:w-96 bg-gray-300 my-4 rounded-lg text-black border-black block'/>)}  
+        <input type="email" placeholder={email} ref={mail}  className='p-3 sm:p-4  my-4 border border-solid w-[22.5rem] sm:w-96  rounded-lg bg-gray-300 text-black border-black block'/>
+        <input type="password" placeholder={password}   ref={passwords} className='p-3 sm:p-4 w-[22.5rem] sm:w-96 border border-solid bg-gray-300 my-4 rounded-lg text-black border-black block'/>
+        {!setsignin && (<input type="password" ref={confirm_password} placeholder={confirmpassword}  className='p-3 sm:p-4 w-[22.5rem] sm:w-96 border border-solid bg-gray-300 my-4 rounded-lg text-black border-black block'/>)}  
          <p className='p-1 font-serif text-orange-300'>{setwarning}</p>
        { setsignin ? (<input type="submit" onClick={handle_Signin} className='p-2 cursor-pointer border border-solid border-black block text-center bg-red-600 mt-10 mb-14 w-full rounded-lg' value={Signin} />):
        (<input type="submit" onClick={handle_SignUp} className='p-2 cursor-pointer border border-solid border-black block text-center bg-red-600 mt-10 mb-14 w-full rounded-lg' value={SignUp} />)}
